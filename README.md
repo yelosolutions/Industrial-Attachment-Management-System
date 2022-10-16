@@ -33,13 +33,13 @@ The file storage is an abstacted storage engine. A system of JSON serialization/
 | File/Directory 	| Type	    | Description						   |
 | :-------------------- | :-------- | :----------------------------------------------------------- |
 | `models`	 	| Directory | Will contain all classes used for the entire project.A class,|
-		 	 	      called "model" in an OOP project is the representation of an |
-		 		      object/instance.					           |
+|		 	| 	    | called "model" in an OOP project is the representation of an |
+|		 	|	    | object/instance.					           |
 | `console.py`		| File      | This is the entry point of my command line interpreter.      |
 | `models/base_model.py`| File      | Defiles parent(base) class to be inherited by all of my model|
- 		        	      classes It has the following elements:     		   |
- 				      - attributes: id, created_at and updated_at                  |
- 			              - methods: save() and to_json 				   |
+| 		        |	    | classes It has the following elements:     		   |
+| 			|	    | - attributes: id, created_at and updated_at                  |
+| 			|           | - methods: save() and to_json 				   |
 | `models/engine`       | Directory | Will contain all storage classes. Has file_storage.py file   |
 
 ### Project Implementation
