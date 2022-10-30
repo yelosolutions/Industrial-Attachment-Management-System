@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+    <head>
+        {% if title %}
+        <title> {{ title }}  - IAMS</title>
+        {% else %}
+        <title>Welcome to IAMS</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            <a href="/index">Home</a>
+        </div>
+        <hr>
+        {% block content %} {% endblock %}
+    </body>
+</html>

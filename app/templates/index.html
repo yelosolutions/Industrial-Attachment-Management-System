@@ -1,20 +1,12 @@
-<!doctype html>
-<html>
-    <head>
-        {% if title %}
-        <title> {{ title }}  - IAMS</title>
-        {% else %}
-        <title>Welcome to IAMS</title>
-        {% endif %}
-    </head>
-    <body>
-        <h1>Hello, {{ user.username }}!</h1>
-        {% for post in req_posts %}
-        <div><p>{{ post.student.username }} has the following request: <b>{{ post.body }}</b></p></div>
-        {% endfor %}
+{%  extends "base.html" %}
 
-        {%for post in remark_posts %}
-        <div><p>{{ post.lecturer.username }} made the following remark: <b>{{ post.body }}</b></p></div>
-        {% endfor %}
-    </body>
-</html>
+{% block content %}
+    <h1>Hello, {{ user.username }}!</h1>
+    {% for post in req_posts %}
+    <div><p>{{ post.student.username }} has the following request: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+
+    {%for post in remark_posts %}
+    <div><p>{{ post.lecturer.username }} made the following remark: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
