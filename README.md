@@ -2,7 +2,8 @@
 ---
 ## **Introduction**
 
-An Industrial Attachment Management System(IAMS) is a complete web application data storage, a back-end API and a front-end interfacing.  
+An Industrial Attachment Management System(IAMS) is a complete web application.
+IAMS implements data storage, a back-end API and a front-end interfacing.  
 It enables undergraduate students to select a company,apply for attachment and register their details and of their supervisors. 
 It links industries with learning institutions, easing the placement of students in workplaces for
 the acquisition of practical skills and appropriate work-ethics.
@@ -13,6 +14,10 @@ A student will therefore be able to easily apply for an attachment position and 
 ## Authors
 
 - [@yelosolutions](https://www.github.com/yelosolutions)
+
+
+## **IAMS app**
+---
 
 ## **IAMS console**
 ### Description
