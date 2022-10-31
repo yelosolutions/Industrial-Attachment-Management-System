@@ -9,9 +9,9 @@
     </head>
     <body>
         <div>
-            <h2><b>IAMS</b></h2> <h3>Pages</h3>
-            <a href="/index">Home</a>
-            <a href="/login">Login</a>
+            <h2><b>IAMS</b>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
         </div>
         <hr>
         {% with messages = get_flashed_messages() %}
