@@ -1,31 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1> Attachment Request</h1>
-    <form action="" method="post" nonvalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.studentname.label }} <br>
-            {{ form.studentname(size=32) }}<br>
-            {% for error in form.studentname.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.email.label }} <br>
-            {{ form.email(size=32) }}<br>
-            {% for error in form.email.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p> 
-            {{ form.contact.label }} <br> 
-            {{ form.contact(size=32) }} <br>
-        </p>
-        <p>
-            {{ form.period.label }} <br> 
-            {{ form.period() }} <br>
-        </p>
-        <p> {{ form.submit() }}</p>
-    </form>
+    <div class="container">
+        <h1> Attachment Request</h1>
+        <form action="" method="post" nonvalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.studentname.label }} <br>
+                {{ form.studentname(size=32) }}<br>
+                {% for error in form.studentname.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.email.label }} <br>
+                {{ form.email(size=32) }}<br>
+                {% for error in form.email.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p> 
+                {{ form.contact.label }} <br> 
+                {{ form.contact(size=32) }} <br>
+            </p>
+            <p>
+                {{ form.period.label }} <br> 
+                {{ form.period() }} <br>
+            </p>
+            <p> {{ form.submit() }}</p>
+        </form>
+    </div>
 {% endblock %}

@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2> Industrial Attachment Management System(IAMS)</h2>
+<div class="container">
+    <h2> Sign in to IAMS</h2>
     <form action="" method="post" nonvalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -21,4 +22,5 @@
         <p> {{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p> {{ form.submit() }}</p>
     </form>
+</div>
 {% endblock %}
