@@ -15,7 +15,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Sign In</a>
+                        <a class="nav-link" href="{{ url_for('login') }}">Sign In</a>
                         <a class="nav-link" href="{{ url_for('request') }}">Request for Attachment</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -23,17 +23,17 @@
                             More pages
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="#">Upload Logbook</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('name') }}">Name</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/index">Log Out</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('signup') }}">Sign Up</a></li>
                         </ul>
                     </li>
                 </ul>
                 <form class="d-flex mt-3" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
+                        <button class="btn btn-secondary" type="submit">Search</button>
                 </form>
             </div>
         </div>
