@@ -32,10 +32,17 @@
             </p>
             <p> {{ form.submit() }}</p>
         </form>
-        <br/><br/><br/>
+    </div>
+    <br/><br/>
+        <table class="table table-hover
+        table-bordered table-striped">
         <h2>List of Students</h2>
         {% for student in students %}
-            {{ student.id }}. {{ student.username }} - {{ student.adm_number }}<br/>
+        <tr>
+            <td>
+            {{ student.id }}. {{ student.username }} - {{ student.adm_number }}
+            </tr>
+        </tr>
         {% endfor %}
-    </div>
+        </table>
 {% endblock %}
