@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect, url_for
-from app import app
-from app.forms import LoginForm, RequestForm, NamerForm, SignupForm
+from app import app, db
+from app.models import User
+from app.forms import LoginForm, RequestForm, StudentForm, NamerForm, SignupForm
 
 @app.route('/')
 @app.route('/index')
@@ -21,6 +22,27 @@ def signup():
     if form.validate_on_submit():
         flash("Form Submited Successfully")
     return render_template('signup.html', title="Sign Up", form=form)
+
+@app.route('/users/add', methods=['GET', 'POST'])
+def add_student():
+    name = None
+    form = StudentForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is None:
+            user = User(username=form.username.data, adm_number=form.adm_number.data, email=form.username.data)
+            db.session.add(user)
+            db.session.commit()
+        name = form.username.data
+        form.username.data = ''
+        form.adm_number.data = ''
+        form.email.data = ''
+        flash("User Added Successfully")
+    students = User.query.order_by(User.date_added)
+    return render_template('add_student.html', title="Add",
+        form=form,
+        name=name,
+        students=students)
 
 @app.route('/request', methods=['GET', 'POST'])
 def request():

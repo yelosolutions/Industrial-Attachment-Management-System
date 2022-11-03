@@ -21,6 +21,16 @@ class SignupForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password')
     register = SubmitField('Register')
 
+class StudentForm(FlaskForm):
+    """ Class object represents a student form
+    """
+    username = StringField('Username', validators=[DataRequired()])
+    adm_number = StringField('Student Number', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
+    date_added = DateTimeField('Date Added')
+    submit = SubmitField('Submit')
+    
+
 class RequestForm(FlaskForm):
     """ Class object represents a request form
     """
