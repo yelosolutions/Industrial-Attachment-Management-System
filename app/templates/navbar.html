@@ -16,7 +16,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('add_student') }}">Add</a>
-                        <a class="nav-link" href="{{ url_for('request') }}">Application</a>
+                        <a class="nav-link" href="{{ url_for('request_att') }}">Application</a>
                         <a class="nav-link" href="#">Log Entry</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -24,7 +24,11 @@
                             More pages
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="{{ url_for('login') }}">Sign In</a></li>
+                            {% if current_user.is_anonymous %}
+                            <li><a class="dropdown-item" href="{{ url_for('login') }}">Login</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{{ url_for('logout')}}">Logout</a></li>
+                            {% endif %}
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
