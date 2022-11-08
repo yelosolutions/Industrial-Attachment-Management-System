@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="shadow p-3 mb-5 bg-body rounded">
-    <div class="container">
-        <h1> Attachment Request</h1>
-        <form action="" method="post" nonvalidate>
+<br/><br/><br/>
+    <form method="POST">
+        <div class="shadow-lg p-3 mb-5 bg-body rounded">
+            <h3> Attachment Request</h3>
+            <hr>
             {{ form.hidden_tag() }}
             <p>
                 {{ form.studentname.label(
@@ -36,7 +37,7 @@
                     class="form-control") }} <br>
             </p>
             <p> {{ form.submit() }}</p>
-        </form>
-    </div>
-</div>
+        </div>
+    </form>
+<br/><br/><br/>
 {% endblock %}

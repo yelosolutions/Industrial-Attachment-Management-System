@@ -1,0 +1,49 @@
+.container{
+    width: 100%;
+    background: whitesmoke;
+}
+
+form {
+    width: 40%;
+    background: white;
+    margin: 0 auto;
+}
+
+h2{
+    color: tomato;
+    text-align: center;
+}
+
+h3{
+    color: darkblue;
+    text-align: center;
+}
+
+h4{
+    color: darkblue;
+    text-align: center;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+  /* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

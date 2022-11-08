@@ -38,6 +38,7 @@ def signup():
     return render_template('signup.html', title="Sign Up", form=form)
 
 @app.route('/add', methods=['GET', 'POST'])
+@login_required
 def add_student():
     name = None
     form = StudentForm()
@@ -59,6 +60,7 @@ def add_student():
         students=students)
 
 @app.route('/request', methods=['GET', 'POST'])
+@login_required
 def request_att():
     form = RequestForm()
     if form.validate_on_submit():
