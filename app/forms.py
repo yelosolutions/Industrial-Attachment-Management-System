@@ -2,7 +2,9 @@
 # import classes that reprent form fields from wtforms 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, PasswordField, BooleanField, SubmitField, DateTimeField, IntegerField
-from wtforms.validators import DataRequired
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
+from app.models import User
+
 
 class LoginForm(FlaskForm):
     """ Class object represents a login form
@@ -12,14 +14,24 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Submit')
     
-class SignupForm(FlaskForm):
+class RegistrationForm(FlaskForm):
     """ Class object represents a login form
     """
-    user = SelectField(u'Select one', choices=['Student Number', 'Staff Number'])
-    usernumber = StringField('Student/Staff Number')
-    new_password = PasswordField('New Password')
-    confirm_password = PasswordField('Confirm Password')
-    register = SubmitField('Register')
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField(
+        'Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Register')
+    
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user is not None:
+            raise ValidationError('Please use a different username')
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is not None:
+            raise ValidationError('Please user a different email')
 
 class StudentForm(FlaskForm):
     """ Class object represents a student form
@@ -29,7 +41,6 @@ class StudentForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
     date_added = DateTimeField('Date Added')
     submit = SubmitField('Submit')
-    
 
 class RequestForm(FlaskForm):
     """ Class object represents a request form

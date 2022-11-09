@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br/><br/><br/>
+    <form action="" method="POST">
+        <div class="shadow-lg p-3 mb-5 bg-body rounded">
+            <h3>Register</h3>
+            <hr>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.username.label(
+                    class="form-label") }} <br>
+                {{ form.username(
+                    class="form-control") }}<br>
+                {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.email.label(
+                    class="form-label") }} <br>
+                {{ form.email(
+                    class="form-control") }}<br>
+                {% for error in form.email.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}        
+            </p>
+            <p> 
+                {{ form.password.label(
+                    class="form-label") }} <br>
+                {{ form.password(
+                    class="form-control") }}<br>
+                {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password2.label(
+                    class="form-label") }}<br>
+                {{ form.password2(
+                    class="form-control") }}<br>
+                {% for error in form.password2.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p> {{ form.submit() }}</p>
+        </div>
+    </form>
+<br/><br/><br/><br/><br/>
+{% endblock %}

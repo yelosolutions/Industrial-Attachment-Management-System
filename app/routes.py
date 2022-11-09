@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.models import User
-from app.forms import LoginForm, RequestForm, StudentForm, NamerForm, SignupForm
+from app.forms import LoginForm, RequestForm, StudentForm, NamerForm, RegistrationForm
 from flask import request
 from werkzeug.urls import url_parse
 
@@ -30,12 +30,19 @@ def login():
         return redirect(next_page)
     return render_template('login.html', title="Sign In", form=form)
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    form = SignupForm()
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = RegistrationForm()
     if form.validate_on_submit():
-        flash("Form Submited Successfully")
-    return render_template('signup.html', title="Sign Up", form=form)
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash("You are now registered!")
+        return redirect(url_for('login'))
+    return render_template('register.html', title="Register", form=form)
 
 @app.route('/add', methods=['GET', 'POST'])
 @login_required
