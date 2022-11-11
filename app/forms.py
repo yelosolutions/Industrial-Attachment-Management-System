@@ -31,7 +31,7 @@ class RegistrationForm(FlaskForm):
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
-            raise ValidationError('Please user a different email')
+            raise ValidationError('Please use a different email')
 
 class StudentForm(FlaskForm):
     """ Class object represents a student form
@@ -42,7 +42,7 @@ class StudentForm(FlaskForm):
     date_added = DateTimeField('Date Added')
     submit = SubmitField('Submit')
 
-class RequestForm(FlaskForm):
+class ApplicationForm(FlaskForm):
     """ Class object represents a request form
     """
     studentname = StringField('Student Name', validators=[DataRequired()])

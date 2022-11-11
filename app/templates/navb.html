@@ -1,0 +1,51 @@
+<div class="sidebar">
+    <div class="logo-details">
+        <i class="bx bxs-home icon"></i>
+            <div class="logo_name">IAMS</div>
+            <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+        <li>
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="Search..." />
+            <span class="tooltip">Search</span>
+        </li>
+        <li>
+            <a href="{{ url_for('index') }}">
+                <i class="bx bx-grid-alt"></i>
+                <span class="links_name">Dashboard</span>
+            </a>
+            <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class="bx bx-user"></i>
+                <span class="links_name">User</span>
+            </a>
+            <span class="tooltip">User</span>
+        </li>
+        <li>
+            <a href="{{ url_for('apply') }}">
+                <i class="bx bx-chat"></i>
+                <span class="links_name">Attachment Application</span>
+            </a>
+            <span class="tooltip">Messages</span>
+        <li>
+            <a href="#">
+                <i class="bx bx-cog"></i>
+                <span class="links_name">Setting</span>
+            </a>
+            <span class="tooltip">Setting</span>
+        </li>
+        <li class="profile">
+        <div class="profile-details">
+            <!--<img src="profile.jpg" alt="profileImg">-->
+            <div class="name_job">
+            <div class="name">Jay</div>
+            <div class="job">Student</div>
+            </div>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+        </li>
+    </ul>
+</div>

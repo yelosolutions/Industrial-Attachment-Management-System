@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 from app import app, db
 from app.models import User
-from app.forms import LoginForm, RequestForm, StudentForm, NamerForm, RegistrationForm
+from app.forms import LoginForm, ApplicationForm, StudentForm, NamerForm, RegistrationForm
 from flask import request
 from werkzeug.urls import url_parse
 
@@ -66,15 +66,14 @@ def add_student():
         name=name,
         students=students)
 
-@app.route('/request', methods=['GET', 'POST'])
+@app.route('/application', methods=['GET', 'POST'])
 @login_required
-def request_att():
-    form = RequestForm()
+def apply():
+    form = ApplicationForm()
     if form.validate_on_submit():
-        flash('Request Form Submitted for {} '.format(
-            form.username.data))
+        flash('Application Submitted for Successfully!')
         return redirect(url_for('index'))
-    return render_template('request_att.html', title="Request", form=form)
+    return render_template('application.html', title="Apply", form=form)
 
 @app.route('/name', methods=['GET', 'POST'])
 def name():
@@ -84,10 +83,52 @@ def name():
         name = form.name.data
         form.name.data = ''
         flash('Form Submitted Successfully')
-        #return redirect(url_for('/index'))
+        #return redirect(url_for('index'))
     return render_template('name.html', title="Name", name=name, form=form)
 
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+
+
+@app.route('/cod')
+def cod():
+    return render_template('cod.html', title='cod')
+
+
+
+
+
+@app.route('/ilo')
+def ilo():
+    return render_template('ilo.html', title='ilo')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

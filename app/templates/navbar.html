@@ -1,14 +1,14 @@
-<nav class="navbar navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-light bg-light fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/index">
             Industrial Attachment Management System
             <img src="{{ url_for('static', filename='images/logo.jpg') }}" class="centre" width=50 alt="logo">
         </a>
-        
+        <a class="navbar-brand" href="{{ url_for('login', username=current_user.username) }}">Profile</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Student Dashboard</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -20,7 +20,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('add_student') }}">Add</a>
-                        <a class="nav-link" href="{{ url_for('request_att') }}">Application</a>
+                        <a class="nav-link" href="{{ url_for('apply') }}">Application</a>
                         <a class="nav-link" href="#">Log Entry</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -40,6 +40,12 @@
                         </ul>
                     </li>
                 </ul>
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <span class="input-group-text border-1" id="search-addon">
+                    <i class="fas fa-search"></i>
+                    </span>
+                </div>
                 <form class="d-flex mt-3" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-secondary" type="submit">Search</button>
