@@ -18,34 +18,38 @@
             <span class="tooltip">Dashboard</span>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ url_for('profile') }}">
                 <i class="bx bx-user"></i>
-                <span class="links_name">User</span>
+                <span class="links_name">Profile</span>
             </a>
-            <span class="tooltip">User</span>
+            <span class="tooltip">Profile</span>
         </li>
         <li>
             <a href="{{ url_for('apply') }}">
-                <i class="bx bx-chat"></i>
+                <i class="bx bx-edit"></i>
                 <span class="links_name">Attachment Application</span>
             </a>
-            <span class="tooltip">Messages</span>
+            <span class="tooltip">Apply</span>
+        {% if current_user.is_admin == True %}
         <li>
-            <a href="#">
+            <a href="{{ url_for('add_student')}}">
                 <i class="bx bx-cog"></i>
-                <span class="links_name">Setting</span>
+                <span class="links_name">Manage</span>
             </a>
-            <span class="tooltip">Setting</span>
+            <span class="tooltip">Add/Remove Student</span>
         </li>
+        {% endif %}
         <li class="profile">
-        <div class="profile-details">
-            <!--<img src="profile.jpg" alt="profileImg">-->
-            <div class="name_job">
-            <div class="name">Jay</div>
-            <div class="job">Student</div>
+            <div class="profile-details">
+                <img src="{{ url_for('static', filename='images/profile1.jpg') }}" alt="profileImg" width=45%>
+                <div class="name_job">
+                <div class="name">{{ current_user.username }}</div>
+                <div class="job">Student</div>
+                </div>
             </div>
-        </div>
-        <i class="bx bx-log-out" id="log_out"></i>
+            <a href="{{ url_for('logout') }}">
+                <i class="bx bx-log-out" id="log_out"></i>
+            </a>
         </li>
     </ul>
 </div>

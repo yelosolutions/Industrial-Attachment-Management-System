@@ -17,9 +17,21 @@
         <title>Welcome to IAMS</title>
         {% endif %}
     </head>
-    <body>
+    <body>    
         {% include 'navb.html' %}
+        <div class="jay">
+            <nav class="navbar navbar-dark" style="background-color: #11101D;">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">
+                        Industrial Attachment Management System
+                        <img src="{{ url_for('static', filename='images/logo.jpg') }}"  style="width: 70px" class="d-inline-block align-top" alt="">
+                    </a>
+
+                </div>    
+            </nav>
+        <br>
         {% block content %} {% endblock %}
+        </div>
         <!-- Optional JavaScript; choose one of the two! -->
     
         <!-- Option 1: Bootstrap Bundle with Popper -->

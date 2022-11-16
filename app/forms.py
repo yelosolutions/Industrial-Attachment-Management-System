@@ -15,10 +15,11 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Submit')
     
 class RegistrationForm(FlaskForm):
-    """ Class object represents a login form
+    """ Class object represents a registration form
     """
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
+    adm_number =StringField('Admission Number', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField(
         'Confirm Password', validators=[DataRequired(), EqualTo('password')])
@@ -37,22 +38,20 @@ class StudentForm(FlaskForm):
     """ Class object represents a student form
     """
     username = StringField('Username', validators=[DataRequired()])
-    adm_number = StringField('Student Number', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired()])
+    adm_number = StringField('Student Number', validators=[DataRequired()])
     date_added = DateTimeField('Date Added')
     submit = SubmitField('Submit')
 
 class ApplicationForm(FlaskForm):
-    """ Class object represents a request form
+    """ Class object represents a application form
     """
-    studentname = StringField('Student Name', validators=[DataRequired()])
-    email = StringField('Email Address', validators=[DataRequired()])
-    contact = IntegerField('Student Phone Number')
-    period = DateTimeField('Attachment Period')
+    start_date = DateTimeField('Start Date')
+    end_date = DateTimeField('End Date')
     submit = SubmitField('Submit')
     
 class NamerForm(FlaskForm):
-    """ Class object represents a request form
+    """ Class object represents a namer form
     """
     name = StringField('Student Name', validators=[DataRequired()])
     submit = SubmitField('Submit')

@@ -14,33 +14,17 @@
             <h3> Attachment Request</h3>
             <hr>
             {{ form.hidden_tag() }}
+            
             <p>
-                {{ form.studentname.label(
-                    class="form-label") }} <br>
-                {{ form.studentname(
-                    class="form-control") }}<br>
-                {% for error in form.studentname.errors %}
-                <span style="color:red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p>
-                {{ form.email.label(
-                    class="form-label") }} <br>
-                {{ form.email(class="form-control") }}<br>
-                {% for error in form.email.errors %}
-                <span style="color:red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p> 
-                {{ form.contact.label(
+                {{ form.start_date.label(
                     class="form-label") }} <br> 
-                {{ form.contact(
+                {{ form.start_date(
                     class="form-control") }} <br>
             </p>
             <p>
-                {{ form.period.label(
+                {{ form.end_date.label(
                     class="form-label") }} <br> 
-                {{ form.period(
+                {{ form.end_date(
                     class="form-control") }} <br>
             </p>
             <p> {{ form.submit() }}</p>

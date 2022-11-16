@@ -33,6 +33,15 @@
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}        
             </p>
+            <p>
+                {{ form.adm_number.label(
+                    class="form-label") }} <br>
+                {{ form.adm_number(
+                    class="form-control") }}<br>
+                {% for error in form.adm_number.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}        
+            </p>
             <p> 
                 {{ form.password.label(
                     class="form-label") }} <br>

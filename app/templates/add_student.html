@@ -29,22 +29,34 @@
                 {{ form.email.label(
                     class="form-label") }}<br>
                 {{ form.email(
-                    class="form-control") }}<br> 
+                    class="form-control") }}<br>
+                {% for error in form.adm_number.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %} 
             </p>
             <p> {{ form.submit() }}</p>
         </div>
     </form>
     <br/><br/>
+    <div class="shadow p-4 mx-5 mb-5 bg-body rounded">
         <table class="table table-hover
         table-bordered table-striped">
         <h2>List of Students</h2>
+        <tr>
+            <th>User ID</th>
+            <th>Student Name</th>
+            <th>Admission Number</th>
+            <th>Email</th>
+        </tr>
         {% for student in students %}
         <tr>
-            <td>
-            {{ student.id }}. {{ student.username }} - {{ student.adm_number }}
-            </tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.username }}</td>
+            <td>{{ student.adm_number }}</td>
+            <td>{{ student.email }}</td>
         </tr>
         {% endfor %}
         </table>
+    </div>
 <br/><br/><br/>
 {% endblock %}

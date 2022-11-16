@@ -11,7 +11,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
     password_hash = db.Column(db.String(128))
-    requests = db.relationship('Application', lazy='dynamic')
+    is_admin = db.Column(db.Boolean, default=False)
+    applications = db.relationship('Application', backref='student', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -27,11 +28,10 @@ def load_user(id):
 
 class Application(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    studentname = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
-    contact = db.Column(db.String(128))
-    period = db.Column(db.Date())
+    start_date = db.Column(db.DateTime, default=datetime.date)
+    end_date = db.Column(db.DateTime, default=datetime.date)
+    status = db.Column(db.String(128))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     
     def __repr__(self):
-        return '<Application request {}>'.format(self.id)
+        return '<Application request {}>'.format(self.start_date)

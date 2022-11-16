@@ -16,18 +16,16 @@
         {% endif %}
     </head>
     <body>
-        <div class="container">
+        <div class="land">
             {% for message in get_flashed_messages() %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ message }}
-                <button type="button" class="btn-close"
-                data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             {% endfor %}
-            <br/><br/><br/>
                 <form method="POST">
                     <div class="shadow-lg p-3 mb-5 bg-body rounded">
-                        <img src="{{ url_for('static', filename='images/logot.jpg') }}" class="centre" width=200 alt="logo">
+                        <img src="{{ url_for('static', filename='images/logot.jpg') }}" class="img-align: centre" style= "width:200px" alt="logo">
                         <h2>Industrial Attachment Management System</h2><br/>
                         <h3>Log In</h3>
                         <hr>

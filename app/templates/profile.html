@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <div class="profile shadow-lg p-3  mx-5 mb-5 bg-body rounded" >
+        <img src="{{ url_for('static', filename='images/profile.jpg') }}" class="rounded" style = "width: 100%" alt="boy profile">
+        <div class="container">
+            <p>ID: {{ current_user.id }}</p>
+            <p>NAME: {{ current_user.username }}</p>
+            <p>
+                Email: {{ current_user.email }}
+                <i class="bx bx-envelope"></i>
+            </p>
+            <p>
+                Date and Time added : {{ current_user.date_added }}
+                <i class="bx bx-calendar"></i>
+            </p>
+        </div>        
+    </div>
+    <br><br>
+{% endblock %}
